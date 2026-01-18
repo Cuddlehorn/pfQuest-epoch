@@ -1,5 +1,7 @@
 # pfQuest [Project Epoch DB]
 
+**NOTE: This is a fork of Bennylavaa's PFQuest-Epoch (https://github.com/Bennylavaa/pfQuest-epoch) which has been archived.
+
 **NOTE: I am quitting Epoch so no more work will be done on this. 
 
 **NOTE: I do not give permission for this addon to be hosted in any servers launchers of any kind unless directly pulled from my repo and you must contact me before doing so.**
