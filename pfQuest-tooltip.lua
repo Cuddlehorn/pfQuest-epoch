@@ -1308,6 +1308,8 @@ local function GetQuestDifficultyFromQuestLog(questID)
 				return elite
 			elseif suggestedGroup ~= 0 then
 				return "Group [" .. suggestedGroup .. "]"
+			else
+				return nil
 			end
 		end
 		i = i + 1
@@ -1325,7 +1327,6 @@ local function RoundTextColor(textColor)
 end
 
 local function Tooltip_GetTexColor(tooltipName, i)
-	
 	local leftR, leftG, leftB = _G[tooltipName .. "TextLeft" .. i]:GetTextColor()
 	local rightR, rightG, rightB = _G[tooltipName .. "TextRight" .. i]:GetTextColor()
 	
@@ -1335,6 +1336,11 @@ end
 local function Tooltip_AddQuestDifficulty (questID)
 	local tooltip = this:GetParent() == WorldMapButton and WorldMapTooltip or GameTooltip
 	if tooltip == nil then
+		return
+	end
+	
+	local questDifficulty = GetQuestDifficultyFromQuestLog(questID)
+	if questDifficulty == nil then
 		return
 	end
 	
@@ -1371,7 +1377,7 @@ local function Tooltip_AddQuestDifficulty (questID)
 		end
 	end
 
-	table.insert(tooltipText, respawnTextIndex + 1, { { text = "Difficulty:", r = .8, g = .8, b = .8 }, { text = GetQuestDifficultyFromQuestLog(questID), r = 1, g = 1, b = 1 } })
+	table.insert(tooltipText, respawnTextIndex + 1, { { text = "Difficulty:", r = .8, g = .8, b = .8 }, { text = questDifficulty, r = 1, g = 1, b = 1 } })
 	
 	tooltip:ClearLines()
 	for i=1, tooltipNumLines + 1 do		
