@@ -58,7 +58,7 @@ want to report.
 Gather as much information you can about what you want to add.
 This can be npc names, items, quest objectives, coordinates, zone, and so on.
 You can use the macros from the section above to help.
-Make a issue over at [issues](https://github.com/Bennylavaa/pfQuest-epoch/issues)
+Make a issue over at [issues](https://github.com/Cuddlehorn/pfQuest-epoch/issues)
 
 ###  Pull request
 If you have the technical knowhow to edit and make a pull request then please

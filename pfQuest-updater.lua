@@ -31,7 +31,7 @@ local function StripRealmName(fullName)
 end
 
 local function UpdatePartyVersionDisplay()
-    if UnitName("player") ~= "Bennylava" then
+    if UnitName("player") ~= "Cuddlehorn" then
         return
     end
 
@@ -67,7 +67,7 @@ local function UpdatePartyVersionDisplay()
 end
 
 local function UpdateTargetVersionDisplay()
-    if UnitName("player") ~= "Bennylava" then
+    if UnitName("player") ~= "Cuddlehorn" then
         return
     end
 
@@ -136,7 +136,7 @@ gpiupdater:SetScript("OnEvent", function(_, event, ...)
                         local availableVer = formatVersion(remoteversion)
                         print("|cff33ffccpfQuest |cffcccccc[Project Epoch DB]|r New version available!")
                         print("Current: |cff66ccff" .. currentVer .. "|r -> Available: |cff66ccff" .. availableVer .. "|r")
-                        print("|cff66ccffhttps://github.com/Bennylavaa/pfQuest-epoch/releases|r")
+                        print("|cff66ccffhttps://github.com/Cuddlehorn/pfQuest-epoch/releases|r")
                         alreadyshown = true
                     end
                 end
@@ -151,7 +151,7 @@ gpiupdater:SetScript("OnEvent", function(_, event, ...)
                 end
             end
             if v == "PONG!" then
-                if UnitName("player") == "Bennylava" then
+                if UnitName("player") == "Cuddlehorn" then
                     local pongCmd, pongversion = hcstrsplit(":", arg2)
                     local pmajor, pminor, pfix = hcstrsplit(".", tostring(pongversion))
                     pfix = pfix or 0
@@ -184,7 +184,7 @@ gpiupdater:SetScript("OnEvent", function(_, event, ...)
             local availableVer = formatVersion(remoteversion)
             print("|cff33ffccpfQuest |cffcccccc[Project Epoch DB]|r New version available!")
             print("Current: |cff66ccff" .. currentVer .. "|r -> Available: |cff66ccff" .. availableVer .. "|r")
-            print("|cff66ccffhttps://github.com/Bennylavaa/pfQuest-epoch/releases|r")
+            print("|cff66ccffhttps://github.com/Cuddlehorn/pfQuest-epoch/releases|r")
             gpiupdateavailable = localversion
             alreadyshown = true
         end
@@ -192,7 +192,7 @@ gpiupdater:SetScript("OnEvent", function(_, event, ...)
             SendAddonMessage("pfqe", "VERSION:" .. localversion, chan)
         end
     elseif event == "PLAYER_TARGET_CHANGED" then
-        if UnitName("player") == "Bennylava" then
+        if UnitName("player") == "Cuddlehorn" then
             local targetName = UnitName("target")
             if targetName and UnitIsPlayer("target") then
                 SendAddonMessage("pfqe", "PING?", "WHISPER", targetName)
