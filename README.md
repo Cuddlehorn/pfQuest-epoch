@@ -1,10 +1,8 @@
-# pfQuest [Project Epoch DB]
-
-**NOTE: This is a fork of Bennylavaa's PFQuest-Epoch (https://github.com/Bennylavaa/pfQuest-epoch) which has been archived.
-
-**NOTE: I am quitting Epoch so no more work will be done on this. 
+# pfQuest [Project Epoch DB]: Cuddlehorn's fork
 
 **NOTE: I do not give permission for this addon to be hosted in any servers launchers of any kind unless directly pulled from my repo and you must contact me before doing so.**
+
+**NOTE: This is a fork of Bennylavaa's PFQuest-Epoch (https://github.com/Bennylavaa/pfQuest-epoch) which has been archived.
 
 An extension for [pfQuest-wotlk](https://github.com/shagu/pfQuest) which adds support for [Project Epoch](https://www.project-epoch.net/).
 The latest version of [pfQuest-wotlk](https://github.com/shagu/pfQuest) is required and only enUS-Gameclients are supported at the time.
@@ -31,6 +29,7 @@ a one man job.
 This project is licensed under a custom license that allows personal use and GitHub forks only. Redistribution or rehosting elsewhere is not permitted. See the [LICENSE](LICENSE) file for details.
 
 ## Special Thank You
+- Bennylavaa: for all the hard work he put into pfquest-epoch.
 - Shagu: for making the base addon and creating pfQuest-turtle which this is based off of.
 - snifflewow: for the auto release workflow idea as well as the cleaned up readme documentation.
 - Exuria: for their countless hours spent contrubuting. 
