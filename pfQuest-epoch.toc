@@ -18,3 +18,4 @@ pfQuest-nameplates.lua
 pfQuest-announce.lua
 pfQuest-tooltip.lua
 pfQuest-config.lua
+pfquest-questlog.lua
