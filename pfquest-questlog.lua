@@ -36,11 +36,69 @@ end)
 
 local questLogFrame = CreateFrame("Frame")
 questLogFrame:RegisterEvent("QUEST_DETAIL")
+questLogFrame:RegisterEvent('GOSSIP_SHOW')
+questLogFrame:RegisterEvent('QUEST_COMPLETE')
+questLogFrame:RegisterEvent('QUEST_FINISHED')
+questLogFrame:RegisterEvent('QUEST_GREETING')
+questLogFrame:RegisterEvent('QUEST_LOG_UPDATE')
+questLogFrame:RegisterEvent('QUEST_PROGRESS')
+
+local function CompleteQuestWithRewards()
+    if GetNumQuestChoices() == 0 then
+        GetQuestReward()
+    end
+end
 
 questLogFrame:SetScript("OnEvent", function(self, event, ...)
+    print(event)
+
+    if pfQuest_config["epochAutoAcceptQuests"] == "0" then
+        return
+    end
+
+    if IsShiftKeyDown() then
+        return
+    end
+
+    if event == "QUEST_PROGRESS" then
+        if IsQuestCompletable() then
+            CompleteQuest()
+        end
+    end
+
+    if event == "QUEST_COMPLETE" then
+        GetQuestReward(QuestFrameRewardPanel.itemChoice)
+    end
+    
+    if event == "QUEST_GREETING" then
+        local numActiveQuests = GetNumActiveQuests()
+        for i=1, numActiveQuests do
+            local title, completed = GetActiveTitle(i)
+            if completed then
+                SelectActiveQuest(i)
+                CompleteQuestWithRewards()
+            end
+        end
+
+        -- The quest dialog closes when the quest gets accepted so no need to do this in a loop
+        if GetNumAvailableQuests() >= 1 then
+            SelectAvailableQuest(1)
+        end
+    end
+
     if event == "QUEST_DETAIL" then
-        if pfQuest_config["epochAutoAcceptQuests"] then
-            AcceptQuest()
+        AcceptQuest()
+    end
+
+    if event == "GOSSIP_SHOW" then
+        if GetNumGossipActiveQuests() > 0 then
+            SelectGossipActiveQuest(1)
+            OnQuestCompleteEvent()
+        end
+
+        -- The quest dialog closes when the quest gets accepted so no need to do this in a loop
+        if GetNumGossipAvailableQuests() > 0 then
+            SelectGossipAvailableQuest(1)
         end
     end
 end)
