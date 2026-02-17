@@ -6,15 +6,6 @@ local function ExtendPfQuestConfig()
         end
     end
 
-    -- local settingPosition = 0
-    -- local cnt = 0
-    -- for _, entry in pairs(pfQuest_defconfig) do
-    --     cnt = cnt + 1
-    --     if entry.type == "header" and entry.text =="Map & Minimap" then
-    --         settingPosition = cnt
-    --     end
-    -- end
-
     table.insert(
         pfQuest_defconfig,
         {
