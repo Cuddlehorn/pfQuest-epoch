@@ -1,28 +1,64 @@
 local function ExtendPfQuestConfig()
+    -- Check if already added (prevents duplicates)
     for _, entry in pairs(pfQuest_defconfig) do
         if entry.config == "epochAutoAcceptQuests" then
             return true
         end
     end
 
-    local settingPosition = 0
-    local cnt = 0
-    for _, entry in pairs(pfQuest_defconfig) do
-        cnt = cnt + 1
-        if entry.type == "header" and entry.text =="Map & Minimap" then
-            settingPosition = cnt
-        end
-    end
+    -- local settingPosition = 0
+    -- local cnt = 0
+    -- for _, entry in pairs(pfQuest_defconfig) do
+    --     cnt = cnt + 1
+    --     if entry.type == "header" and entry.text =="Map & Minimap" then
+    --         settingPosition = cnt
+    --     end
+    -- end
 
-    table.insert(pfQuest_defconfig, settingPosition, {
-        text = "Accept available quests automatically",
+    table.insert(
+        pfQuest_defconfig,
+        {
+            text = "|cff33ffccQuest automation|r",
+            type = "header"
+        }
+    )
+
+
+    table.insert(pfQuest_defconfig,
+    {
+        text = "Automatically accept and complete quests",
         default = "0",
         type = "checkbox",
-        config = "epochAutoAcceptQuests"
+        config = "epochAutoQuests"
     })
 
-    if not pfQuest_config["epochAutoAcceptQuests"] then
-        pfQuest_config["epochAutoAcceptQuests"] = "0"
+    table.insert(pfQuest_defconfig,
+    {
+        text = "Automate runecloth donations",
+        default = "0",
+        type = "checkbox",
+        config = "epochAutomateRuneclothDonations"
+    })
+
+    table.insert(pfQuest_defconfig,
+    {
+        text = "Skip accepting commission quests",
+        default = "0",
+        type = "checkbox",
+        config = "epochSkipCommissionQuests"
+    })
+
+
+    if not pfQuest_config["epochAutoQuests"] then
+        pfQuest_config["epochAutoQuests"] = "0"
+    end
+
+    if not pfQuest_config["epochSkipCommissionQuests"] then
+        pfQuest_config["epochSkipCommissionQuests"] = "1"
+    end
+
+    if not pfQuest_config["epochAutomateRuneclothDonations"] then
+        pfQuest_config["epochAutomateRuneclothDonations"] = "0"
     end
 
     return true
@@ -50,9 +86,7 @@ local function CompleteQuestWithRewards()
 end
 
 questLogFrame:SetScript("OnEvent", function(self, event, ...)
-    print(event)
-
-    if pfQuest_config["epochAutoAcceptQuests"] == "0" then
+    if pfQuest_config["epochAutoQuests"] == "0" then
         return
     end
 
@@ -91,14 +125,32 @@ questLogFrame:SetScript("OnEvent", function(self, event, ...)
     end
 
     if event == "GOSSIP_SHOW" then
-        if GetNumGossipActiveQuests() > 0 then
-            SelectGossipActiveQuest(1)
-            OnQuestCompleteEvent()
+        local numAvailable = GetNumGossipAvailableQuests()
+        for i = 1, numAvailable do
+            local title = GetGossipAvailableQuests(i)
+            if string.find(title, "Commission") then
+                if pfQuest_config["epochSkipCommissionQuests"] == "0" then
+                    SelectGossipAvailableQuest(i)
+                end
+            else          
+                SelectGossipAvailableQuest(1)
+            end
         end
 
-        -- The quest dialog closes when the quest gets accepted so no need to do this in a loop
-        if GetNumGossipAvailableQuests() > 0 then
-            SelectGossipAvailableQuest(1)
+        local numGossipActiveQuests = GetNumGossipActiveQuests()
+        for i = 1, numGossipActiveQuests do
+            local activeQuests = { GetGossipActiveQuests() }
+            if (activeQuests[i * 4] == 1) then
+                SelectGossipActiveQuest(i)
+                OnQuestCompleteEvent()
+            end
+        end
+
+        if pfQuest_config["epochAutomateRuneclothDonations"] == "1" and GetNumGossipActiveQuests() == 1 then
+            local title = GetGossipActiveQuests(1)
+            if string.find(title, "Additional Runecloth") then
+                SelectGossipActiveQuest(1)
+            end
         end
     end
 end)
