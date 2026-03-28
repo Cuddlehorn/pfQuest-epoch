@@ -133,7 +133,7 @@ questLogFrame:SetScript("OnEvent", function(self, event, ...)
             local activeQuests = { GetGossipActiveQuests() }
             if (activeQuests[i * 4] == 1) then
                 SelectGossipActiveQuest(i)
-                OnQuestCompleteEvent()
+                -- OnQuestCompleteEvent() Throws an error all of a sudden. Don't remember what this was for :D
             end
         end
 

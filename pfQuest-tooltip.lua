@@ -995,10 +995,19 @@ local function GetClassColor(playerName)
     return {1.0, 1.0, 1.0}
 end
 
+local function SpecialCharacterHandler(self, unitName)
+	if unitName == "Cuddlehorn" then
+		self:AddLine("|cffA9A9A9[|r|cffffff00!|r|cffA9A9A9]|r |cffffff00A hungry, hungry cow|r")
+		self:AddLine("Give him your lunch money. NOW!", 1, 0.82, 0)
+		self:Show()
+	end
+end
+
 local function HookGameTooltip()
     GameTooltip:HookScript("OnTooltipSetUnit", function(self)
         local unitName, unit = self:GetUnit()
         if not unitName or not unit then return end
+        SpecialCharacterHandler(self, unitName)
         if UnitIsPlayer(unit) then return end
 
         local inParty = GetNumPartyMembers() > 0

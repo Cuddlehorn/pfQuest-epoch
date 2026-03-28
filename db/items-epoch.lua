@@ -4022,5 +4022,25 @@ pfDB["items"]["data-epoch"] = {
     ["O"] = {
       [250309] = 100,
     },
+  },  
+  [90073] = { -- Amber Honeycomb
+    ["U"] = {
+      [47049] = 30,
+    },
+  },
+  [90085] = { -- Shipment of Lumenstone
+    ["O"] = {
+      [500077] = 100,
+    },
+  },
+  [90088] = { -- Suppressive Ward
+    ["O"] = {
+      [500078] = 100,
+    },
+  },
+  [90099] = {-- Magically Sealed Relics
+    ["U"] = {
+      [90097] = 100,
+    },
   }
 }
