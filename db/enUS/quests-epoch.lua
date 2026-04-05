@@ -11607,22 +11607,37 @@ pfDB["quests"]["enUS-epoch"] = {
   [31005] = {
     ["T"] = "Food For The Soul",
     ["O"] = "Speak with Dirge and wait for him to finish cooking Honey Butter Bread.",
-    ["D"] = "",
+    ["D"] = "With the ingredients collected let\'s figure this baby out, $N. Watch and learn!",
   },
   [31006] = {
     ["T"] = "An Audience With the Warchief",
     ["O"] = "Speak with Thrall in Orgrimmar about the troubling reports coming from Winterspring.",
     ["D"] = "Hail, adventurer. I was recently granted an audience with the Warchief. The tale of your heroics battling Lord Valthalak have left a lasting impression on him.\n\nI was told the Horde can use someone with your skills at this time. Strange things have been happening in Winterspring. Go, speak with the Warchief, don't make him wait.",
   },
+  [31007] = {
+    ["T"] = "An Audience With the King",
+    ["O"] = "Speak with Magni Bronzebeard in Ironforge about the troubling reports coming from Winterspring.",
+    ["D"] = "",
+  },
   [31008] = {
     ["T"] = "Troubling Reports",
     ["O"] = "Listen to the Warchief\'s command.",
     ["D"] = "Will you answer the call of your Warchief? Sit, listen.\n\n<A guard brings you a stack of reports.>\n\nThe spirits are restless, $N, something vile is happening in the frozen lands of Winterspring. Horde mages sense a massive arcane disturbance coming from it\’s Eastern parts and our spies report Spirestone ogre presence, they have never been seen outside of Blackrock Mountain.\n\nI fear dire things must be happening for such an uproar from all directions. Can I count on you to investigate it, adventurer?",
   },
+  [31009] = {
+    ["T"] = "Troubling Reports",
+    ["O"] = "Listen to the King\'s request.",
+    ["D"] = "",
+  },
   [31010] = {
     ["T"] = "Winterward Trek",
     ["O"] = "Investigate horde scout reports in Eastern Winterspring.",
     ["D"] = "<You are given a stack of scout reports. Reading through them, it seems that ogre activity and arcane anomalies were spotted in the Eastern part of Winterspring. You see a mention of a tight mountain pass and massive dragon remains. Best head there and see what you can find.>",
+  },
+  [31011] = {
+    ["T"] = "Winterward Trek",
+    ["O"] = "Investigate alliance scout reports in Eastern Winterspring.",
+    ["D"] = "",
   },
   [31012] = {
     ["T"] = "The Problem at Hand",
@@ -11773,5 +11788,25 @@ pfDB["quests"]["enUS-epoch"] = {
     ["T"] = "Touch of Protection",
     ["O"] = "Bring Karanth the reagents and he will create a Touch of Protection.",
     ["D"] = "The crystal you were given is a rare and potent reagent. Combined with a medium I can conjure a powerful enchantment that can assist you in your adventures."
+  },
+  [31042] = {
+    ["T"] = "Battle of Gillijim\'s Isle",
+    ["O"] = "Achieve victory in Gillijim\'s Isle 3 times, then return to Wel\'cha in the Valley of Winds in Orgrimmar. (This quest can be completed once every week)",
+    ["D"] = "Dere be island far to de east near the jungles of Stranglethorn that we once called Darkspear Isle, we were forced to flee a long long time ago and we journeyed west, this happened once again afterwards before we settled on what ya now see off the coast of Durotar.\n\nDa gnomes of da Alliance found something on the island, which has since been known as Gilli\'jim's Isle, and dey wish to strip mine it! We cannot allow them dis resource, and we must protect our history. Will you aid us?"
+  },
+  [31043] = {
+    ["T"] = "Battle of Gillijim\'s Isle",
+    ["O"] = "Achieve victory in Gillijim\'s Isle 3 times, then return to Wel\'cha in the Valley of Winds in Orgrimmar. (This quest can be completed once every week)",
+    ["D"] = ""
+  },
+  [31044] = {
+    ["T"] = "Fight for Gillijim\'s Isle",
+    ["O"] = "Achieve victory in Gillijim\'s Isle 3 times, then return to Maxwell Zanoise in Stormwind Harbor. (This quest can be completed once every week.)",
+    ["D"] = ""
+  },
+  [31045] = {
+    ["T"] = "Fight for Gillijim\'s Isle",
+    ["O"] = "Achieve victory in Gillijim\'s Isle 3 times, then return to Maxwell Zanoise in Stormwind Harbor. (This quest can be completed once every week.)",
+    ["D"] = ""
   },
 }
