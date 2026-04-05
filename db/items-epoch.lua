@@ -4027,6 +4027,12 @@ pfDB["items"]["data-epoch"] = {
     ["U"] = {
       [47049] = 30,
     },
+  },  
+  [90074] = { -- Stick of Butter
+    ["V"] = {
+      [2393] = 0,
+      [2364] = 0,
+    },
   },
   [90085] = { -- Shipment of Lumenstone
     ["O"] = {
